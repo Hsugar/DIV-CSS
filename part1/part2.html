@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>多列布局高度自适应布局</title>
+    <style>
+    body{
+        margin: 0;
+        padding: 0;
+        background: #f0f0f0;
+    }
+    .container:after{
+        display: block;
+        content: '';
+        clear: both;
+        height: 0;
+        /* overflow: hidden; */
+    }
+    .container{
+        zoom:1;
+        width: 600px;
+        margin: 0 auto;
+        border: 2px solid pink;
+    }
+    .left{
+        float: left;
+        width: 200px;
+        padding-bottom: 1000px;
+        margin-bottom: -1000px;
+        background: #f90;
+
+    }
+    .right{
+        float: right;
+        padding-bottom: 1000px;
+        margin-bottom: -1000px;
+        background: #666;
+
+    }
+    </style>
+</head>
+<body>
+    <!-- 
+
+    等高布局目前浏览器兼容最好最简便的方法应该是padding补偿法。
+
+    1.首先把列的padding-bottom设为一个足够的值，再利用margin-bottom正负值相抵，父容器设置超出隐藏=>父容器的高度就是里面列没有设定padding-bottom时的高度。当里面任意一列高度增加，则父容器的高度被撑开到最高那列的高度
+
+    2.因为背景是可以用在padding占用的空间里的，而且边框也是跟随padding变化的，所以成功完成了一个障眼法。
+    
+    -->
+    <div class="container">
+        <div class="left">我是left</div>
+        <!-- <div class="right">我是right现在我的高度比left高，但left用它的padding-bottom补偿了这部分高度.现在我的高度比left高现在我的高度比left高现在我的高度比left高现在我的高度比left高</div> -->
+    </div>
+</body>
+</html>
